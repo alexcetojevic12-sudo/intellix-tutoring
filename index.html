@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Intellix Tutoring | IB Math Tutor, SAT Prep & Online Maths Support</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- SEO meta tags -->
+  <meta name="description" content="Intellix Tutoring offers personalised online IB Math (SL & HL), SAT math prep, Bocconi test preparation, and university-level maths tutoring with maths graduate Alex Cetojević. Clear explanations, structured plans, and calm support that build confidence and better grades." />
+  <meta name="keywords" content="IB math tutor, IB Maths HL, IB Maths SL, IB tutoring online, SAT math tutor, SAT preparation, Bocconi test prep, university math tutoring, online maths tutor, Intellix Tutoring, math tutor Europe" />
+
+  <!-- Open Graph for social sharing -->
+  <meta property="og:title" content="Intellix Tutoring | IB Math, SAT Prep & Online Maths Support" />
+  <meta property="og:description" content="Support that builds clarity, confidence, and better grades. Online tutoring for IB Maths, SAT, Bocconi test prep, and university-level maths." />
+  <meta property="og:type" content="website" />
+  <!-- If you have a custom domain, replace the URL below -->
+  <meta property="og:url" content="https://your-domain-or-github-pages-url" />
+  <meta property="og:image" content="alex.jpg" />
+
+  <!-- Simple JSON-LD schema for an online tutoring service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Intellix Tutoring",
+    "description": "Online maths tutoring specialising in IB Maths (SL & HL), SAT preparation, Bocconi test prep and first-year university mathematics.",
+    "url": "https://your-domain-or-github-pages-url",
+    "founder": {
+      "@type": "Person",
+      "name": "Alex Cetojević",
+      "description": "Maths graduate and online tutor specialising in IB Maths, SAT and university-level mathematics."
+    },
+    "areaServed": "Online",
+    "sameAs": []
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --blue-dark: #003b8e;
+      --blue-mid:  #326ab3;
+      --blue-deep: #0046ce;
+      --accent-mint: #8ee6db;
+      --accent-light: #3dd5ff;
+      --bg: #f8fbff;
+      --text: #0f1a2f;
+      --text-light: #5f6b80;
+      --white: #ffffff;
+      --border-subtle: #dde5f1;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, h5, h6, p, span, a { color: var(--text); }
+    a { text-decoration: none; }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(248, 251, 255, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid #e1e6f0;
+      animation: slideDown 0.6s ease-out;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--blue-dark);
+    }
+
+    .logo-wrap img {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-mint), var(--accent-light));
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover::after { width: 100%; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.15s ease, box-shadow 0.15s ease,
+                  background 0.15s ease, border-color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue-mid), var(--blue-deep));
+      color: var(--white);
+      box-shadow: 0 12px 30px rgba(50, 106, 179, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(50, 106, 179, 0.6);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid #ccd5e7;
+      color: var(--blue-dark);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(142, 230, 219, 0.12);
+      border-color: var(--accent-mint);
+    }
+
+    main { padding-bottom: 64px; }
+
+    /* Hero */
+    .hero { padding: 56px 0 40px; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--blue-mid);
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      line-height: 1.12;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(120deg, var(--blue-mid), var(--accent-light));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-tagline {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--text-light);
+      margin-bottom: 22px;
+      max-width: 520px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .hero-note {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left,
+                    rgba(142, 230, 219, 0.4) 0, transparent 55%), var(--white);
+      border-radius: 22px;
+      padding: 20px 20px 22px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .hero-card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--blue-dark);
+    }
+
+    .hero-stat {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .hero-stat span:last-child {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* Sections */
+    section { padding: 40px 0; }
+
+    .section-heading {
+      font-size: 1.7rem;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .section-sub {
+      font-size: 0.98rem;
+      color: var(--text-light);
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 28px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 18px 18px 20px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.06);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: rgba(142, 230, 219, 0.18);
+      color: #0b7166;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .muted {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    /* About section */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 2.2fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .about-photo-wrap {
+      position: relative;
+      max-width: 320px;
+    }
+
+    .about-photo {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      border-radius: 22px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-subtle);
+      object-fit: cover;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .about-chip {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      background: rgba(255, 255, 255, 0.96);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--blue-dark);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+    }
+
+    .about-list {
+      list-style: none;
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    .about-list li {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .about-list li::before {
+      content: "•";
+      color: var(--accent-light);
+      font-size: 1.1rem;
+      line-height: 1.2;
+    }
+
+    /* Testimonials & contact */
+
+    .testimonial {
+      font-size: 0.98rem;
+      font-style: italic;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .testimonial-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-light);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      gap: 28px;
+      align-items: flex-start;
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+    }
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-light);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid #cbd5e1;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text);
+      background: #fdfefe;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--blue-mid);
+      box-shadow: 0 0 0 1px rgba(50, 106, 179, 0.15);
+    }
+
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 18px 0 26px;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      text-align: center;
+    }
+
+    /* Animations */
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-grid,
+      .grid-3,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links { display: none; }
+      .hero { padding-top: 32px; }
+      .hero-card { margin-top: 10px; }
+      .about-photo-wrap { max-width: 260px; margin: 0 auto; }
+    }
+
+    /* Horizontal testimonial scroll */
+.testimonial-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.testimonial-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.testimonial-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+.testimonial-card {
+  min-width: 300px;
+  max-width: 340px;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+.testimonial-scroll {
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+}
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo-wrap">
+      <img src="logo-intellix.png" alt="Intellix Tutoring logo" />
+      <span>Intellix Tutoring</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn-ghost">Book a Call</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="container hero-grid fade-up">
+      <div>
+        <div class="hero-eyebrow">Online IB Math, SAT &amp; University Tutoring</div>
+        <h1>Math made clear.<br /><span>Progress made real.</span></h1>
+        <p class="hero-tagline">
+          Support that builds clarity, confidence, and better grades.
+        </p>
+        <p class="hero-sub">
+          I help students understand what they’re doing in maths, not just memorise steps.
+          Through calm, structured online lessons, I specialise in IB Maths (SL &amp; HL),
+          SAT math prep, Bocconi test preparation and first-year university mathematics.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Book a Free Intro Call</a>
+          <a href="#services" class="btn btn-ghost">See How I Work</a>
+        </div>
+        <p class="hero-note">
+          Maths graduate &amp; former youth national team athlete with 500+ hours of tutoring
+          experience helping students move from overwhelmed to confident.
+        </p>
+      </div>
+
+      <aside class="hero-card fade-up">
+        <div class="hero-card-title">Student Results Snapshot</div>
+        <div class="hero-stat"><span>Average grade improvement</span><span>+2 levels</span></div>
+        <div class="hero-stat"><span>IB &amp; SAT students tutored</span><span>25+ so far</span></div>
+        <div class="hero-stat"><span>Focus areas</span><span>IB Maths, SAT, Bocconi, Uni Maths</span></div>
+        <div class="hero-stat"><span>Lesson style</span><span>Calm, clear, structured</span></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container fade-up">
+      <h2 class="section-heading">Services I Offer</h2>
+      <p class="section-sub">
+        Specialised online tutoring for IB Maths, SAT math, Bocconi test prep and university-level maths,
+        plus flexible formats for individual students, small groups and parents.
+      </p>
+
+      <div class="grid-3">
+        <div class="card fade-up">
+          <div class="tag">IB</div>
+          <h3>IB Tutoring (SL &amp; HL)</h3>
+          <p class="muted">
+            Structured support for IB Maths and Physics at both SL and HL.
+            We focus on understanding the syllabus, exam-style questions, past papers
+            and clear methods so students feel prepared for the IB Diploma exams.
+          </p>
+        </div>
+
+        <div class="card fade-up">
+          <div class="tag">SAT</div>
+          <h3>SAT Math Prep</h3>
+          <p class="muted">
+            Targeted SAT math tutoring with an emphasis on timing, accuracy and high-yield topics.
+            Students receive a clear plan, focused practice, and strategies to improve scores efficiently.
+          </p>
+        </div>
+
+        <div class="card fade-up">
+          <div class="tag">Bocconi</div>
+          <h3>Bocconi Test Preparation</h3>
+          <p class="muted">
+            Focused preparation for Bocconi’s admissions test, with tailored practice on quantitative
+            reasoning and problem-solving, using exam-style questions and structured review.
+          </p>
+        </div>
+
+        <div class="card fade-up">
+          <div class="tag">1:1</div>
+          <h3>Individual Online Lessons</h3>
+          <p class="muted">
+            One-on-one online maths tutoring designed around the student’s level and goals.
+            Ideal for building foundations, closing gaps and developing long-term confidence in maths.
+          </p>
+        </div>
+
+        <div class="card fade-up">
+          <div class="tag">1:2</div>
+          <h3>Lessons for Two Students</h3>
+          <p class="muted">
+            A collaborative option for friends or classmates working on similar topics.
+            More affordable than individual lessons, while still structured and highly personalised.
+          </p>
+        </div>
+
+        <div class="card fade-up">
+          <div class="tag">Support</div>
+          <h3>Resources &amp; Parents’ Briefings</h3>
+          <p class="muted">
+            Custom practice sets, revision summaries and exam-style questions,
+            along with optional parent meetings to review progress, challenges and next steps.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+  <div class="container about-grid fade-up">
+    
+    <div class="about-photo-wrap">
+      <img src="alex.jpg" alt="Online IB Math tutor Alex Cetojević" class="about-photo" />
+      <div class="about-chip">Your Tutor</div>
+    </div>
+
+    <div>
+      <h2 class="section-heading" style="text-align:left;">About Alex</h2>
+      
+      <p class="section-sub" style="text-align:left; margin-bottom:12px;">
+        I’m Alex — a maths graduate and former International Baccalaureate student who understands
+        both the demands of the IB Diploma Programme and what students need to succeed in it.
+        I graduated the IB with a <strong>43/45</strong>, earning a <strong>7 in Mathematics AA HL</strong>,
+        <strong>7 in Physics HL</strong>, and an <strong>A in my Mathematics Extended Essay</strong>.
+        This experience allows me to guide students not only academically, but also strategically.
+      </p>
+
+      <p class="section-sub" style="text-align:left; margin-bottom:12px;">
+        Over the past years, I’ve supported IB students across international schools throughout Europe,
+        specialising in IB Maths AA/AI, SAT Math, Bocconi test prep, and university mathematics.
+        My teaching style is calm, structured, and clarity-driven — I help students truly understand concepts,
+        not just memorise methods, so they feel confident in class, during assessments, and in exams.
+      </p>
+
+      <ul class="about-list">
+        <li>BSc in Mathematics with a very high GPA (29.3/30).</li>
+        <li>500+ hours tutoring IB, SAT, and university-level maths and physics.</li>
+        <li>Strong track record of helping students move from low confidence and low grades to consistent, stable performance.</li>
+        <li>Former youth national team beach volleyball athlete — bringing discipline, focus, and consistency to tutoring.</li>
+        <li>A structured, patient teaching approach: clear explanations, a logical progression, and personalised guidance.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section id="why-ib">
+  <div class="container fade-up">
+    <h2 class="section-heading">Why IB Students Choose Me</h2>
+    <p class="section-sub">
+      As an IB Maths AA HL graduate and tutor, I understand both the structure of the Diploma Programme
+      and the day-to-day reality of being an IB student at an international school.
+      Here’s what students and parents tell me they value most.
+    </p>
+
+    <div class="grid-3">
+      <div class="card fade-up">
+        <div class="tag">Experience</div>
+        <h3>IB Insight, Not Guesswork</h3>
+        <p class="muted">
+          I’ve completed the IB myself with 43/45, including 7 in Maths AA HL and an A in a Maths EE.
+          I know how internal assessments, mock exams and final exams actually feel from the inside.
+        </p>
+      </div>
+
+      <div class="card fade-up">
+        <div class="tag">Clarity</div>
+        <h3>Concepts That Finally Make Sense</h3>
+        <p class="muted">
+          We focus on understanding the ideas behind formulas and methods.
+          Students learn how to think through questions, not just copy solutions,
+          which makes them more confident in unfamiliar problems.
+        </p>
+      </div>
+
+      <div class="card fade-up">
+        <div class="tag">Structure</div>
+        <h3>A Plan for the Whole IB Journey</h3>
+        <p class="muted">
+          From Year 1 foundations to Year 2 exam revision, I help students organise
+          their learning with clear priorities, topic checklists, and realistic study plans.
+        </p>
+      </div>
+
+      <div class="card fade-up">
+        <div class="tag">Calm</div>
+        <h3>Reduced Stress, More Control</h3>
+        <p class="muted">
+          Lessons are calm, patient and honest. We slow down when needed, move faster when possible,
+          and always keep anxiety in check so the student feels in control of their progress.
+        </p>
+      </div>
+
+      <div class="card fade-up">
+        <div class="tag">Communication</div>
+        <h3>Transparent with Parents</h3>
+        <p class="muted">
+          For families who want it, I offer regular briefings on progress, weak areas and next steps.
+          Parents stay informed without having to micromanage every detail.
+        </p>
+      </div>
+
+      <div class="card fade-up">
+        <div class="tag">Consistency</div>
+        <h3>Discipline from Sport</h3>
+        <p class="muted">
+          As a former youth national team athlete, I bring consistency, reliability and a growth mindset
+          to tutoring. We set realistic goals, track improvement, and keep showing up.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section id="testimonials">
+  <div class="container fade-up">
+    <h2 class="section-heading">What Families Say</h2>
+    <p class="section-sub">
+      Feedback from IB students and parents I’ve supported.
+    </p>
+
+    <!-- Horizontal scroll container -->
+    <div class="testimonial-scroll">
+      
+      <div class="card testimonial-card">
+        <p class="testimonial">
+          “Alex helped me go from a 3 in IB Maths AA HL to a confident 6 by finals.”
+        </p>
+        <p class="testimonial-name">IB AA HL Student</p>
+      </div>
+
+      <div class="card testimonial-card">
+        <p class="testimonial">
+          “My daughter finally understands her teacher. Her confidence and grades improved.”
+        </p>
+        <p class="testimonial-name">Parent, International School</p>
+      </div>
+
+      <div class="card testimonial-card">
+        <p class="testimonial">
+          “SAT math score +120 points. Lessons are structured and efficient.”
+        </p>
+        <p class="testimonial-name">SAT Student</p>
+      </div>
+
+      <div class="card testimonial-card">
+        <p class="testimonial">
+          “Alex explains concepts clearly and patiently. My son no longer panics before tests.”
+        </p>
+        <p class="testimonial-name">Parent of Year 11 Student</p>
+      </div>
+
+      <div class="card testimonial-card">
+        <p class="testimonial">
+          “The best maths tutor I’ve had. I finally understand IB Maths AA rather than memorising.”
+        </p>
+        <p class="testimonial-name">IB AA SL Student</p>
+      </div>
+
+      <div class="card testimonial-card">
+        <p class="testimonial">
+          “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non massa vel elit luctus.”
+        </p>
+        <p class="testimonial-name">Placeholder Student</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container contact-grid fade-up">
+      <div>
+        <h2 class="section-heading" style="text-align:left;">Book a Free Intro Call</h2>
+        <p class="section-sub" style="text-align:left; margin-bottom:18px;">
+          Share a bit about the student, their current situation and goals, and I’ll respond with
+          suggested next steps and available times for an online call.
+        </p>
+        <p class="muted" style="margin-bottom:14px;">
+          You can also contact me directly:<br />
+          <strong>Email:</strong> <a href="mailto:alexcetojevic12@gmail.com">alexcetojevic12@gmail.com</a><br />
+          <strong>WhatsApp:</strong> <a href="https://wa.me/385953521299" target="_blank">+385 95 352 1299</a>
+        </p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a href="mailto:alexcetojevic12@gmail.com" class="btn btn-primary">Email Me</a>
+          <a href="https://wa.me/385953521299" target="_blank" class="btn btn-ghost">Chat on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card fade-up">
+        <form>
+          <div>
+            <label for="name">Student / Parent Name</label>
+            <input id="name" type="text" placeholder="Your name" />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com" />
+          </div>
+          <div>
+            <label for="details">How can I help?</label>
+            <textarea id="details" placeholder="IB Math HL, SAT math, Bocconi test, university maths course…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    © <span id="year"></span> Intellix Tutoring. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  // Update year in footer
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Scroll-triggered animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
+</script>
+<script>
+// AUTO-SCROLL TESTIMONIALS
+document.addEventListener("DOMContentLoaded", function () {
+  const scrollContainer = document.querySelector(".testimonial-scroll");
+  let scrollAmount = 0;
+  let autoScrollInterval;
+
+  function startAutoScroll() {
+    autoScrollInterval = setInterval(() => {
+      // Scroll by one card width at a time
+      const cardWidth = scrollContainer.querySelector(".testimonial-card").offsetWidth + 20; 
+      scrollAmount += cardWidth;
+
+      // Loop back to start if end reached
+      if (scrollAmount >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
+        scrollAmount = 0;
+      }
+
+      scrollContainer.scrollTo({
+        left: scrollAmount,
+        behavior: "smooth"
+      });
+    }, 3000); // scroll every 3 seconds
+  }
+
+  function stopAutoScroll() {
+    clearInterval(autoScrollInterval);
+  }
+
+  // Start auto scroll
+  startAutoScroll();
+
+  // Pause on hover
+  scrollContainer.addEventListener("mouseenter", stopAutoScroll);
+  scrollContainer.addEventListener("mouseleave", startAutoScroll);
+});
+</script>
+
+</body>
+</html>
