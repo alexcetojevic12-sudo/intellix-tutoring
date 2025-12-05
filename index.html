@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Intellix Tutoring – Math & Test Prep</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --blue-dark: #003b8e;
+      --blue-mid:  #326ab3;
+      --blue-deep: #0046ce;
+      --accent-mint: #8ee6db;
+      --accent-light: #3dd5ff;
+      --bg: #f8fbff;
+      --text: #0f1a2f;
+      --text-light: #5f6b80;
+      --white: #ffffff;
+      --border-subtle: #dde5f1;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, h5, h6, p, span, a { color: var(--text); }
+    a { text-decoration: none; }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(248, 251, 255, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid #e1e6f0;
+      animation: slideDown 0.6s ease-out;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--blue-dark);
+    }
+
+    .logo-wrap img {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-mint), var(--accent-light));
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover::after { width: 100%; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.15s ease, box-shadow 0.15s ease,
+                  background 0.15s ease, border-color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue-mid), var(--blue-deep));
+      color: var(--white);
+      box-shadow: 0 12px 30px rgba(50, 106, 179, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(50, 106, 179, 0.6);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid #ccd5e7;
+      color: var(--blue-dark);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(142, 230, 219, 0.12);
+      border-color: var(--accent-mint);
+    }
+
+    main { padding-bottom: 64px; }
+
+    /* Hero */
+    .hero { padding: 56px 0 40px; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--blue-mid);
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      line-height: 1.12;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(120deg, var(--blue-mid), var(--accent-light));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--text-light);
+      margin-bottom: 22px;
+      max-width: 520px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .hero-note {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left,
+                    rgba(142, 230, 219, 0.4) 0, transparent 55%), var(--white);
+      border-radius: 22px;
+      padding: 20px 20px 22px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .hero-card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--blue-dark);
+    }
+
+    .hero-stat {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .hero-stat span:last-child {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* Sections */
+    section { padding: 40px 0; }
+
+    .section-heading {
+      font-size: 1.7rem;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .section-sub {
+      font-size: 0.98rem;
+      color: var(--text-light);
+      text-align: center;
+      max-width: 520px;
+      margin: 0 auto 28px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 18px 18px 20px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.06);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: rgba(142, 230, 219, 0.18);
+      color: #0b7166;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .muted {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    /* About section */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 2.2fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .about-photo-wrap {
+      position: relative;
+      max-width: 320px;
+    }
+
+    .about-photo {
+      width: 100%;
+      border-radius: 22px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-subtle);
+      object-fit: cover;
+    }
+
+    .about-chip {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      background: rgba(255, 255, 255, 0.96);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--blue-dark);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+    }
+
+    .about-list {
+      list-style: none;
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    .about-list li {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .about-list li::before {
+      content: "•";
+      color: var(--accent-light);
+      font-size: 1.1rem;
+      line-height: 1.2;
+    }
+
+    /* Testimonials & contact */
+
+    .testimonial {
+      font-size: 0.98rem;
+      font-style: italic;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .testimonial-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-light);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      gap: 28px;
+      align-items: flex-start;
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+    }
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-light);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid #cbd5e1;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text);
+      background: #fdfefe;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--blue-mid);
+      box-shadow: 0 0 0 1px rgba(50, 106, 179, 0.15);
+    }
+
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 18px 0 26px;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      text-align: center;
+    }
+
+    /* Animations */
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-grid,
+      .grid-3,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links { display: none; }
+      .hero { padding-top: 32px; }
+      .hero-card { margin-top: 10px; }
+      .about-photo-wrap { max-width: 260px; margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo-wrap">
+      <!-- Make sure logo-intellix.png exists in same folder -->
+      <img src="logo-intellix.png" alt="Intellix logo" />
+      <span>INTELLIX</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn-ghost">Book a Call</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="container hero-grid fade-up">
+      <div>
+        <div class="hero-eyebrow">Math, IB, SAT &amp; Bocconi Prep</div>
+        <h1>Unlock Success.<br /><span>Learn with Alex.</span></h1>
+        <p class="hero-sub">
+          Personalized tutoring tailored to your level, goals, and pace — clear explanations,
+          smart practice, and a calm approach that builds confidence.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Book a Call</a>
+          <a href="#services" class="btn btn-ghost">See How It Works</a>
+        </div>
+        <p class="hero-note">
+          Math graduate &amp; former youth national team athlete with 500+ hours of tutoring
+          experience helping students overcome stress and thrive.
+        </p>
+      </div>
+
+      <aside class="hero-card fade-up">
+        <div class="hero-card-title">Student Snapshot</div>
+        <div class="hero-stat"><span>Average grade improvement</span><span>+2 levels</span></div>
+        <div class="hero-stat"><span>Students tutored</span><span>25+ so far</span></div>
+        <div class="hero-stat"><span>Focus areas</span><span>IB, SAT, Bocconi</span></div>
+        <div class="hero-stat"><span>Teaching style</span><span>Calm, clear, structured</span></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container fade-up">
+      <h2 class="section-heading">Services I Offer</h2>
+<p class="section-sub">
+  Support for IB, SAT, university-level maths, and tailored individual or paired lessons.
+  Resources, structure, and clear communication for both students and parents.
+</p>
+
+      <div class="grid-3">
+
+  <div class="card fade-up">
+    <div class="tag">IB</div>
+    <h3>IB Tutoring (SL & HL)</h3>
+    <p class="muted">
+      Full support for IB Maths & Physics. Step-by-step explanations, past papers,
+      revision plans, and exam-style practice that builds confidence and improves grades.
+    </p>
+  </div>
+
+  <div class="card fade-up">
+    <div class="tag">SAT</div>
+    <h3>SAT Tutoring</h3>
+    <p class="muted">
+      Targeted quantitative prep, timing strategies, score-boosting drills,
+      and structured weekly plans designed to maximise improvement quickly.
+    </p>
+  </div>
+
+  <div class="card fade-up">
+    <div class="tag">1:1</div>
+    <h3>Individual Lessons</h3>
+    <p class="muted">
+      Completely personalised sessions adapted to the student’s level, pace, and goals.
+      Ideal for focused progress and building skills steadily.
+    </p>
+  </div>
+
+  <div class="card fade-up">
+    <div class="tag">1:2</div>
+    <h3>Lessons for Two Students</h3>
+    <p class="muted">
+      Perfect for friends or classmates working on the same topics. More affordable,
+      collaborative, and still highly personalised.
+    </p>
+  </div>
+
+  <div class="card fade-up">
+    <div class="tag">Material</div>
+    <h3>Summative Material & Resources</h3>
+    <p class="muted">
+      Custom worksheets, revision notes, practice sets, and exam-style questions
+      tailored to the student’s weak areas.
+    </p>
+  </div>
+
+  <div class="card fade-up">
+    <div class="tag">Parents</div>
+    <h3>Parents' Meetings & Briefings</h3>
+    <p class="muted">
+      Regular updates on progress, challenges, strengths, and next steps. Clear,
+      honest communication to ensure alignment and visible improvement.
+    </p>
+  </div>
+</div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container about-grid fade-up">
+      <div class="about-photo-wrap">
+        <!-- Put alex.jpg in the same folder or change filename -->
+        <img src="alex.jpg" alt="Alex Cetojević" class="about-photo" />
+        <div class="about-chip">Your Tutor</div>
+      </div>
+      <div>
+        <h2 class="section-heading" style="text-align:left;">About Me</h2>
+        <p class="section-sub" style="text-align:left; margin-bottom:12px;">
+          I’m Alex, a maths graduate who genuinely enjoys helping students go from
+          “I have no idea what’s happening” to “this finally makes sense”.
+          I mostly work with IB, SAT and first-year university students who want someone
+          calm, structured, and on their side.
+        </p>
+        <ul class="about-list">
+          <li>BSc in Mathematics with a very high GPA (29.3/30).</li>
+          <li>500+ hours tutoring IB, SAT and university-level maths and physics.</li>
+          <li>Track record of helping struggling students turn failing grades into solid 5s, 6s and 7s.</li>
+          <li>Former youth national team beach volleyball player – I bring that discipline and resilience to teaching.</li>
+          <li>My style is patient, honest and organised: I explain the “why”, not just the “how”, and give you a clear plan forward.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section>
+    <div class="container fade-up">
+      <h2 class="section-heading">What Students Say</h2>
+      <p class="section-sub">A few words from families I’ve worked with.</p>
+
+      <div class="grid-3">
+        <div class="card fade-up">
+          <p class="testimonial">“Alex helped me go from failing IB Math to a 6.”</p>
+          <p class="testimonial-name">IB HL Student</p>
+        </div>
+
+        <div class="card fade-up">
+          <p class="testimonial">“My SAT math score increased by 120 points.”</p>
+          <p class="testimonial-name">SAT Student</p>
+        </div>
+
+        <div class="card fade-up">
+          <p class="testimonial">“My son enjoys math now and stopped panicking.”</p>
+          <p class="testimonial-name">Parent of HS Student</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container contact-grid fade-up">
+      <div>
+        <h2 class="section-heading" style="text-align:left;">Book a Call</h2>
+        <p class="section-sub" style="text-align:left; margin-bottom:18px;">
+          Tell me a bit about you and your goals, and I’ll get back to you with next steps
+          and available times for a free introductory call.
+        </p>
+        <p class="muted" style="margin-bottom:14px;">
+          You can also reach me directly at:<br />
+          <strong>Email:</strong> <a href="mailto:alexcetojevic12@gmail.com">alexcetojevic12@gmail.com</a><br />
+          <strong>WhatsApp:</strong> <a href="https://wa.me/385953521299" target="_blank">+385 95 352 1299</a>
+        </p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a href="mailto:alexcetojevic12@gmail.com" class="btn btn-primary">Email Me</a>
+          <a href="https://wa.me/385953521299" target="_blank" class="btn btn-ghost">Chat on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card fade-up">
+        <form>
+          <div>
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Student / parent name" />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com" />
+          </div>
+          <div>
+            <label for="details">What do you need help with?</label>
+            <textarea id="details" placeholder="IB Math HL, Bocconi test, SAT, university maths…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    © <span id="year"></span> Intellix Tutoring. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  // Update year in footer
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Scroll-triggered animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
+</script>
+
+</body>
+</html>
